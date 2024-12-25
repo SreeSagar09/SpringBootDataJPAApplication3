@@ -1,0 +1,31 @@
+A Program to show some simple methods to retrieve records from DB:
+Programs:
+* SpringBootDataJPAApplication1Application.java
+* Employee.java
+* EmployeeRepository.java
+* TestRunner.java
+Notes:
+* The QueryByExampleExecutor interface is to allow execution of Query by Example instances.
+* The Example interface is used to Support for query by example (QBE). An Example takes a properties to define the example.
+* The ExampleMatcher interface is used for property path matching to use in query by example (QBE).
+Output:
+From run method in TestRunner class.
+----- To get all records by findAll(Example<S> example) method -----
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_ where employee0_.employee_name=?
+3 --> Pavan[A003]
+5 --> Pavan[A005]
+----- To get all records by findAll(Example<S> example) method -----
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_ where employee0_.designation=?
+3 --> Pavan[A003] --> QA Engineer
+4 --> Aravind[A004] --> QA Engineer
+5 --> Pavan[A005] --> QA Engineer
+----- To get all records by findAll(Example<S> example, Sort sort) method -----
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_ where employee0_.designation=? order by employee0_.age desc
+1 --> Sree Sagar[A001] --> Software Engineer --> 30
+2 --> Sathish[A002] --> Software Engineer --> 27
+6 --> Rakesh[A006] --> Software Engineer --> 27
+----- To get all records by findAll(Example<S> example, Pageable pageable) method -----
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_ where employee0_.designation=? limit ?
+Hibernate: select count(employee0_.employee_id) as col_0_0_ from employee employee0_ where employee0_.designation=?
+1 --> Sree Sagar[A001] --> Software Engineer --> 30
+From main method in SpringBootDataJPAApplication3Application class.
