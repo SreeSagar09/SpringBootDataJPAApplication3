@@ -1,6 +1,6 @@
 A Program to show some simple methods to retrieve records from DB:
 Programs:
-* SpringBootDataJPAApplication1Application.java
+* SpringBootDataJPAApplication3Application.java
 * Employee.java
 * EmployeeRepository.java
 * TestRunner.java
